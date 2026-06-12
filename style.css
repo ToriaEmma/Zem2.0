@@ -725,10 +725,10 @@ body.faq-page .footer {
   .tab-card {
     width: 100%;
     left: 0;
-    bottom: 0;
+    bottom: -12px; /* sit lower on the mobile screen */
     border-radius: 24px 24px 0 0;
     transform: none !important; /* disable rotation/transformations on mobile */
-    padding: 1.2rem;
+    padding: 1.2rem 1.2rem 2.0rem 1.2rem; /* extra bottom padding to compensate bottom offset */
     box-shadow: 0 -10px 25px rgba(13, 47, 97, 0.08); /* top shadow only for mobile bottom sheet */
     border: none;
     border-top: 1px solid rgba(13, 47, 97, 0.08);
