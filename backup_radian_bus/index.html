@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ZEM 2.0 — Immersive Transit Experience</title>
+  <meta name="description" content="Découvrez le futur de la mobilité urbaine à travers l'expérience interactive ZEM 2.0.">
+
+  <!-- Fonts: Outfit (Geometric Sans) & Playfair Display (Cursive Serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Import Map for Three.js and Addons -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <!-- GSAP & ScrollTrigger for Scroll Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Cinematic Loader -->
+  <div class="loader-wrapper" id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">ZEM<span>2.0</span></div>
+      <div class="loader-bar"><div class="loader-progress" id="progress-bar"></div></div>
+      <div class="loader-status">Génération du modèle 3D du bus...</div>
+    </div>
+  </div>
+
+  <!-- Fullscreen WebGL Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Premium Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">ZEM<span>2.0</span></a>
+      <nav class="nav-links">
+        <a href="#overview" class="nav-link active">Présentation</a>
+        <a href="#specs" class="nav-link">Spécifications</a>
+        <a href="#order" class="nav-link nav-btn">Réserver</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Immersive Scrolling Sections (ScrollTrigger Targets) -->
+  <div class="scroll-wrapper">
+    <!-- SECTION 1: Intro Hero -->
+    <section class="scroll-section" id="hero-sec">
+      <div class="section-content">
+        <span class="section-eyebrow">ZEM TRANSIT CONCEPT</span>
+        <h1 class="heading-xl">Une nouvelle ère de<br>mobilité urbaine.</h1>
+        <p class="paragraph-m">Conçu pour ceux qui repoussent les limites de la ville.</p>
+        <div class="btn-group">
+          <a href="#specs" class="btn btn-primary">Découvrir le bus</a>
+          <a href="#order" class="btn btn-secondary">Réserver</a>
+        </div>
+      </div>
+      <!-- Scroll Indicator -->
+      <a href="#specs-sec" class="scrolldown-indicator">
+        <div class="scrolldown-label">Défiler</div>
+        <svg viewBox="0 0 24 24" class="scrolldown-svg">
+          <path d="M6 13.5L12 19.5L18 13.5" stroke="currentColor" fill="none" stroke-width="1.5"></path>
+          <path d="M6 5.5L12 11.5L18 5.5" stroke="currentColor" fill="none" stroke-width="1.5"></path>
+        </svg>
+      </a>
+    </section>
+
+    <!-- SECTION 2: Dynamic Side View -->
+    <section class="scroll-section" id="specs-sec">
+      <div class="section-content align-right">
+        <span class="section-eyebrow">AÉRODYNAMISME FLUIDE</span>
+        <h2 class="heading-l">Dessiné par le vent.</h2>
+        <p class="paragraph-m">Une silhouette épurée et des surfaces vitrées continues offrant une visibilité panoramique inédite.</p>
+        <div class="specs-grid">
+          <div class="spec-item">
+            <span class="spec-value">100%</span>
+            <span class="spec-label">Électrique</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-value">750 kW</span>
+            <span class="spec-label">Puissance</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-value">0 Émission</span>
+            <span class="spec-label">Co2</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Cockpit Zoom -->
+    <section class="scroll-section" id="cockpit-sec">
+      <div class="section-content">
+        <span class="section-eyebrow">POSTE DE CONDUITE INTELLIGENT</span>
+        <h2 class="heading-l">Contrôle absolu.</h2>
+        <p class="paragraph-m">Un cockpit panoramique en verre trempé équipé d'une interface intuitive assistée par IA pour un voyage connecté.</p>
+        <ul class="features-list">
+          <li>Écrans HUD intégrés au pare-brise</li>
+          <li>Caméras de rétrovision à 360°</li>
+          <li>Conduite autonome de niveau 4</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Drive Off / Preorder -->
+    <section class="scroll-section" id="order-sec">
+      <div class="section-content center-content">
+        <span class="section-eyebrow">VENEZ À BORD</span>
+        <h2 class="heading-xl">Prenez le départ.</h2>
+        <p class="paragraph-m max-width-35">Rejoignez la révolution ZEM 2.0 et réservez votre accès dès aujourd'hui.</p>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-replay">Recommencer la visite</button>
+          <a href="#" class="btn btn-secondary">Nous contacter</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

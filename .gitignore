@@ -1,0 +1,5 @@
+.claude/
+.sixth/
+.vscode/
+.DS_Store
+node_modules/
