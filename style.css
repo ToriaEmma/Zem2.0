@@ -676,7 +676,7 @@ body.faq-page .footer {
   .outer-frame {
     padding: 0; /* full bleed for mobile */
     min-height: 100vh;
-    min-height: 580px; /* lower minimum height on mobile */
+    min-height: 750px; /* increased to prevent elements overlapping on small/zoomed viewports */
   }
   .hero-card {
     border-radius: 0;
@@ -707,9 +707,7 @@ body.faq-page .footer {
     margin-top: -2.5vw;
   }
   .bg-title-row {
-    bottom: 220px; /* placed above the tab-card to avoid overlapping */
-    right: 1.5rem;
-    align-items: flex-end;
+    display: none; /* remove bottom subtitle text on mobile */
   }
   .bg-year {
     font-size: 14vw;
@@ -720,15 +718,15 @@ body.faq-page .footer {
   }
   .mascot-container {
     width: 65vw;
-    top: 44%; /* moved up from 48% */
+    top: 48%; /* shifted down from 44% to give space below the navbar */
   }
   .tab-card {
     width: 100%;
     left: 0;
-    bottom: -12px; /* sit lower on the mobile screen */
+    bottom: -22px; /* sit lower on the mobile screen */
     border-radius: 24px 24px 0 0;
     transform: none !important; /* disable rotation/transformations on mobile */
-    padding: 1.2rem 1.2rem 2.0rem 1.2rem; /* extra bottom padding to compensate bottom offset */
+    padding: 1.2rem 1.2rem 2.6rem 1.2rem; /* extra bottom padding to compensate bottom offset */
     box-shadow: 0 -10px 25px rgba(13, 47, 97, 0.08); /* top shadow only for mobile bottom sheet */
     border: none;
     border-top: 1px solid rgba(13, 47, 97, 0.08);
@@ -1877,9 +1875,17 @@ body.faq-page .footer {
     color: var(--cream-color);
     box-shadow: 0 10px 25px rgba(13, 47, 97, 0.2);
   }
+  .footer-card-btn:hover {
+    background-color: #ffffff;
+    color: var(--card-bg); /* Dark text on white hover background */
+  }
   .footer-card-btn-arrow {
     background-color: var(--cream-color);
     color: var(--card-bg);
+  }
+  .footer-card-btn:hover .footer-card-btn-arrow {
+    background-color: var(--card-bg);
+    color: #ffffff;
   }
   .footer-card-right {
     align-items: flex-start;
