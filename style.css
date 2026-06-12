@@ -121,6 +121,10 @@ body.faq-page .footer {
   font-weight: 800;
   letter-spacing: 0.05rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1711,6 +1715,7 @@ body.faq-page .footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-decoration: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
